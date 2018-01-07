@@ -1,0 +1,366 @@
+header{
+    background-color: #5ab5bb;
+    padding: 0 20px 0 20px;
+}
+header nav a,.navbar .navbar-header a {
+    color: #ffffff;
+}
+.active{
+    background-color: #47a4a9;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #47a4a9!important;
+    color: #ffffff;
+}
+.navbar{
+    margin-bottom: 0!important;
+}
+.div-video{
+    margin-top: 60px;
+    background: url(/images/index_09.jpg) no-repeat center bottom;
+}
+.div-video video{
+    margin-top: 40px;
+}
+.row-bug{
+    margin-top: 60px;
+}
+.product .product-intro{
+    display: block;
+    margin-top: 40px;
+    line-height: 30px;
+    text-indent: 40px;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+.za-c-pro-item-price{
+    margin-top: 60px;
+}
+.za-c-pro-item-price .price-numb {
+    font-size: 36px;
+    color: #12c287;
+}
+
+.za-c-pro-item-price .price-unit {
+    font-size: 18px;
+    color: #12c287;
+    margin-right: 4px;
+    margin-left: -3px;
+}
+.za-c-pro-item-btn-link {
+    display: block;
+    cursor: pointer;
+    width: 124px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 14px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    background-color: #12c287;
+    border-radius: 4px;
+}
+
+.client,.row-client-say,row-zj-say{
+    margin-top: 60px;
+}
+
+.client>ul>li {
+    display: inline-block;
+    width: 380px;
+    height: 480px;
+    vertical-align: top;
+    text-align: center;
+}
+.client>ul>li>img {
+    width: 280px;
+
+}
+.client-info>div:first-child:before {
+    content: "";
+    background: url(/images/nail_icon.png) no-repeat -96px -96px;
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    left: 0;
+    top: -4px;
+}
+.client-info>div:first-child {
+    text-align: left;
+    font-size: 16px;
+    color: #626466;
+    padding-left: 60px;
+    height: 160px;
+    line-height: 28px;
+}
+.client-info>div+div {
+    font-size: 16px;
+    float: right;
+}
+.client-info>div+div+div {
+    font-size: 14px;
+    float: right;
+    clear: both;
+}
+.client-info {
+    width: 280px;
+    display: inline-block;
+    position: relative;
+    margin-top: 20px;
+}
+.client ul{
+    padding-left: 0;
+}
+.fs-18 {
+    font-size: 18px;
+}
+p, a, span {
+    text-decoration: none;
+    font-family: "微软雅黑";
+}
+p {
+    line-height: 150%;
+    margin: 0 0 10px;
+}
+.mt-50 {
+    margin-top: 50px;
+}
+.pb-50 {
+    padding-bottom: 50px;
+}
+.footer {
+    color: #fff;
+    background-color: #5ab5bb;
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+    padding: 0 120px;
+    overflow: hidden;
+}
+.footer{
+    margin-top: 60px;
+}
+.row-company {
+    margin-top: 20px;
+}
+.row-company h2,.row-csr h2,.row-honor h2{
+    text-align: center;
+    margin: 40px 0px 40px 0px;
+}
+.row-hxcf h2,.row-cpys h2{
+    text-align: center;
+    margin: 60px 0px 60px 0px;
+}
+.row-csr p{
+    display: block;
+    line-height: 30px;
+    font-size: 16px;
+}
+.picScroll-left .bd ul li .pic {
+    text-align: center;
+    width: 213px;
+    height: 300px;
+    text-align: center;
+    border: 1px solid #c1ca95;
+    position: relative;
+}
+.picList li{
+    float: left;
+    width: 215px;
+}
+.picScroll-left .bd ul li .pic a {
+    display: block;
+    width: 213px;
+    height: 300px;
+    position: absolute;
+    top: -300px;
+}
+.picScroll-left .hd .next {
+    background: url(/images/about_24.jpg);
+    top: 132px;
+    right: 0px;
+}
+.picScroll-left .hd .prev {
+    background: url(/images/about_23.jpg);
+    top: 132px;
+    left: 0px;
+}
+.picScroll-left {
+    width: 1200px;
+    height: 302px;
+    overflow: hidden;
+    position: relative;
+}
+.picScroll-left .bd {
+    width: 1128px;
+    margin: 0 auto;
+}
+.picScroll-left .bd ul li .pic {
+    text-align: center;
+    width: 213px;
+    height: 300px;
+    text-align: center;
+    border: 1px solid #c1ca95;
+    position: relative;
+}
+.picList li{
+    margin: 0 5px;
+    float: left;
+    _display: inline;
+    overflow: hidden;
+    text-align: center;
+}
+.picScroll-left .hd .prev, .ny_abo_box3 .picScroll-left .hd .next {
+    display: block;
+    width: 36px;
+    height: 36px;
+    overflow: hidden;
+    cursor: pointer;
+    position: absolute;
+}
+.picScroll-left .hd .next {
+    display: block;
+    width: 36px;
+    height: 36px;
+    overflow: hidden;
+    cursor: pointer;
+    position: absolute;
+}
+.picScroll-left .bd ul li .pic:hover a {
+    top: 0;
+    background: rgba(184,211,60,0.6) url(/images/about_18.png) no-repeat;
+}
+
+section>.hidden{
+    display: none;
+}
+li, dl, dt, dd {
+    list-style: none;
+}
+.ny_pro_ys ul li .tit {
+    position: absolute;
+    top: 0;
+    height: 38px;
+    width: 298px;
+    border: 1px solid #cccccc;
+    text-align: center;
+    left: 11px;
+}
+.ny_pro_ys ul li .tit span {
+    display: inline-block;
+    font: normal 18px/38px "微软雅黑";
+    color: #666666;
+}
+.ny_pro_ys ul li .img {
+    position: absolute;
+    width: 100%;
+    height: 362px;
+    top: 65px;
+}
+.ny_pro_ys ul li .img .con {
+    position: absolute;
+    width: 300px;
+    height: 336px;
+    background: rgba(0,0,0,0.63);
+    top: 13px;
+    left: 11px;
+    font: normal 14px/18px "微软雅黑";
+    color: #FFF;
+    display: table;
+    display: none;
+}
+.ny_pro_ys ul li {
+    float: left;
+    width: 322px;
+    height: 427px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 39px;
+}
+.ny_pro_cf {
+    overflow: hidden;
+}
+.ny_pro_cf .b_img {
+    width: 100%;
+    height: 221px;
+}
+.ny_pro_cf .b_img .l_btn {
+    width: 42px;
+    height: 84px;
+    float: left;
+    margin-top: 68px;
+}
+.ny_pro_cf .b_img .box {
+    width: 780px;
+    height: 221px;
+    background: url(/images/product_07.jpg) no-repeat center top;
+    margin: 0 auto;
+}
+.ny_pro_cf .b_img .box .img {
+    float: left;
+    width: 157px;
+    height: 157px;
+    margin: 34px 0 0 80px;
+}
+.ny_pro_cf .b_img .box .img img {
+    width: 157px;
+    height: 157px;
+    border-radius: 50%;
+}
+.ny_pro_cf .b_img .box .tit {
+    float: right;
+    width: 430px;
+    height: 25px;
+    margin: 60px 80px 25px 0;
+    font: bold 16px/25px "微软雅黑";
+    color: #2c2c2c;
+}
+.ny_pro_cf .b_img .box .con {
+    float: right;
+    width: 430px;
+    margin: 0 80px 0 0;
+    font: normal 16px/25px "微软雅黑";
+    color: #2c2c2c;
+}
+.ny_pro_cf ul {
+    overflow: hidden;
+    margin: 40px auto 100px;
+}
+.ny_pro_cf ul li {
+    float: left;
+    width: 108px;
+    height: 108px;
+    text-align: center;
+    margin: 0 3px;
+    cursor: pointer;
+}
+.ny_pro_cf ul li img {
+    width: 82px;
+    height: 82px;
+    margin: 16px;
+    border-radius: 50%;
+}
+.ny_pro_cf .b_img .l_btn {
+    width: 42px;
+    height: 84px;
+    float: left;
+    margin-top: 68px;
+}
+.ny_pro_cf .b_img .r_btn {
+    width: 42px;
+    height: 84px;
+    float: right;
+    margin-top: 68px;
+}
+.ny_pro_cf ul{
+    padding-left: 0px;
+}
+.form-horizontal .form-group {
+    margin-right: 0!important;
+}
+.area-select .form-control{
+    width: 150px;
+    float: left;
+    margin-right: 10px;
+}

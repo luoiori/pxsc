@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/video-js.min.css" >
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/video.js"></script>
+    <script src="/js/jquery.SuperSlide.2.1.1.js" ></script>
+    <script src="/js/distpicker.data.min.js"></script>
+    <script src="/js/distpicker.min.js"></script>
+</head>
+<body>
+<header class="navbar navbar-static-top bs-docs-nav" id="top">
+    <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="#" class="navbar-brand" onclick="menuChange(1)">菩萨心肠</a>
+    </div>
+    <nav id="bs-navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active" onclick="menuChange(1);">
+                <a href="javascript:void(0);">首页</a>
+            </li>
+            <li onclick="menuChange(2);">
+                <a href="javascript:void(0);">关于我们</a>
+            </li>
+            <li onclick="menuChange(3);">
+                <a href="javascript:void(0);" >产品介绍</a>
+            </li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="" >联系电话:18888888888</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="row">
+    <div id="myCarousel" class="carousel slide">
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="/images/lb1.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="/images/lb1.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="/images/lb1.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section id="section1" >
+<div class="row div-video" align="center">
+    <div class="col-lg-12">
+        <img src="/images/index_08.jpg">
+    </div>
+    <video style="width:695px; height:390px;" poster="/images/video1.jpg" preload="auto"  controls="controls"><source src="/video/video1.mp4" /></video>
+</div>
+
+<div class="container">
+    <div class="row row-bug">
+        <div class="col-lg-7">
+            <img src="/images/product.jpeg">
+        </div>
+        <div class="col-lg-5 product">
+            <h3>DeSlim益生菌·纤维菩萨心肠核心品牌</h3>
+            <span class="product-intro">
+            益生菌·纤维由新加坡原装进口（马来西亚生产），100%纯天然，不含化学添加剂，其主要成分是益生菌、益生元、膳食纤维，通过改善肠道环境，调节身体机能，促进体内毒素清除，每日饮用，有效管理肠道健康，保持身体年轻活力！
+            </span>
+            <p class="za-c-pro-item-price">
+                <span class="price-numb">188</span>
+                <i class="price-unit">元</i>起
+            </p>
+            <span class="za-c-pro-item-btn-link" data-toggle="modal" data-target="#myModal">联系购买</span>
+        </div>
+    </div>
+    <div class="row row-client-say" align="center">
+        <h1>看看乐斯的客户们在说些什么</h1>
+    </div>
+    <div class="row client">
+        <ul>
+            <li>
+                <img src="/images/client001.png">
+
+                <div class="client-info">
+                    <div>乐斯系统设计时尚高端，使用过程中给我感觉很有档次，安装操作非常简便，不需要专门培训收银员了，每个员工都可以轻松使用”</div>
+
+                    <div>——徐汝熙</div>
+
+                    <div>All Queens Nail日式美甲会所</div>
+                </div>
+            </li><li>
+            <img src="/images/client002.png">
+
+            <div class="client-info">
+                <div>乐斯是为美甲美睫店量身定做的系统，各方面的功能设计很贴心，感谢乐斯团队为我们提供这么棒的产品”</div>
+
+                <div>——马兆卉</div>
+
+                <div>Seven美甲美睫会所</div>
+            </div>
+        </li><li>
+            <img src="/images/client003.png">
+
+            <div class="client-info">
+                <div>在乐斯的帮助下，我们的客户服务质量有了整体改善，会员办卡续卡的成功率提升了60%，店面业绩持续增长”</div>
+
+                <div>——吴亲黛</div>
+
+                <div>Angel时尚艺术</div>
+            </div>
+        </li>
+        </ul>
+    </div>
+
+    <div class="row row-zj-say" align="center">
+        <h1 class="pb-50">专家推荐</h1>
+        <div class="col-md-8 col-lg-8 text-justify">
+            <p class="fs-18">著名肠胃病专家、原中央保健医方万勇指出，当代，伴随着社会进步和人民生活水平的提高，由于饮食的多样化和相关科普知识的不足，人们的肠道健康问题也愈加凸显，被肠胃疾病问题困扰的患者屡见不鲜。同时，由于保健品市场鱼龙混杂，真假难辨，使消费者不知所从。北京裕和中西医康复医院中医研究院院长杨克呼吁，广大消费者要多掌握科普知识，增强对真假保健品的辨别能力，做到不上当，不受骗，科学服用保健品。981名医会主任赵建友则建议，菩萨心肠公司应加强科普知识的宣传，让更多的民众做到远离疾病，科学养生。美国总统保健团队高级顾问、著名医学专家唐泰德对菩萨益生菌的产品质量予以肯定，并用中英双语对科学原理进行了解说。</p>
+
+            <p class="fs-18 mt-50">981名医会主任赵建友教授将把与会者的精彩演讲集结成册，广为宣传。与会专家与患者对菩萨心肠公司研发营销的肠胃保健品益生菌的成分与质量，给与了良好评价，希望菩萨心肠公司今后多举办些类似的活动，把健康养生知识送到千家万户。</p>
+        </div>
+        <div class="col-md-4 col-lg-4">
+            <img src="/images/sec-6-img-1.jpg" alt="">
+        </div>
+    </div>
+
+    </div>
+
+
+</div>
+
+
+</section>
+
+<section id="section2" class="hidden">
+    <div class="container">
+        <div class="row row-company">
+            <h2>公司简介&nbsp;Company profile</h2>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <img src="/images/about_10.jpg" style="float:left;">
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <p>
+                    深圳市菩萨心肠生物科技有限公司成立于2009年5月20日，创办人郑旭恩先生，联动集团产业链——恒立诚金融控股、百欣办公用品连锁、鼎悦连锁酒店，用他敏锐的商业思维、以大健康产业为发展方向。2016年品牌再次升级，联手新加坡公司——Merci Biological Technology PTE LTD，集产品研发、运营策划，成立亚太区运营中心，用全新的经济模式，正式启幕。<br>
+                    菩萨心肠生物科技斥资巨额，联合中国中医药研究促进会肛肠分会，聘田振国会长为“肛肠疾病预防研究学术指导顾问”，肛肠疾病预防专家柯玮主任，组成公司的产品研发团队、国际市场调研部、国内顶尖导师团等，并将开展大规模科教普及广告宣传，为肛肠健康进行推广。<br>
+                    DeSlim作为菩萨心肠生物科技核心品牌之一，扎根大健康时代，稳扎稳打进军全球化，以过硬产品品质赢得了广泛的大众口碑，严于质量把关，精于原料甄选，选自国际化生产！致力打造肠道健康调养食品第一品牌！ <br>
+                    秉承“品质至上、服务第一”的宗旨，公司每一步都脚踏实地，品牌影响力日益深远，在互联网经济发展模式中，脱颖而出、飞速发展。事业版图逐步覆盖全国迈向世界，是一家具有国际化视野的企业。
+                </p>
+            </div>
+        </div>
+
+        <div class="row row-csr">
+            <h2>创办人简介&nbsp;Founder introduction</h2>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3>创办人头衔：</h3>
+                        <p>DeSlim 亚太区品牌创办人</p>
+                        <p>恒立诚金融控股有限公司联合创办人</p>
+                        <p>中国中医药研究促进会肛肠分会副会长</p>
+                        <p>鼎悦连锁酒店联合创办人</p>
+                        <p>百欣办公用品连锁公司创办人</p>
+                        <p>深圳市菩萨心肠生物科技有限公司创办人</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3>创办人历程：</h3>
+                        <p>1990年，在惠州日薪6元的岗位上，就开始规划人生第一个梦想——赚一百万。</p>
+                        <p>1996年，在深圳以5000元创业，成立百欣文具，至今20年坚持以“想客户之所想、急客户之所急”的服务理念，业务遍布全国。
+                            2005年，经历了商业的春夏秋冬，坚持怀揣的梦想不变，实现了人生第一个百万梦想。</p>
+                        <p>2006年，在公交车上，启发了一个“开银行”的创业梦。就是十年后，今天的恒立诚金融有限公司，至今，十年间创立多家公司及多项目市值过亿，他跨界经商被人屡屡称赞。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <img src="/images/about_14.jpg" style="float:left;">
+            </div>
+        </div>
+
+        <div class="row row-honor">
+            <h2>资质荣誉&nbsp;Qualification honor</h2>
+            <div class="row">
+                <div class="picScroll-left" id="picScroll-left1">
+                    <div class="hd">
+                        <a class="next"></a>
+                        <a class="prev"></a>
+                    </div>
+                    <div class="bd">
+                        <ul class="picList">
+                            <li><div class="pic"><a href="/images/honor1.jpg" target="_blank"></a><img src="/images/honor1.jpg" width="213" height="301" /></div></li>
+                            <li><div class="pic"><a href="/images/honor2.jpg" target="_blank"></a><img src="/images/honor2.jpg" width="213" height="301" /></div></li>
+                            <li><div class="pic"><a href="/images/honor3.jpg" target="_blank"></a><img src="/images/honor3.jpg" width="213" height="301" /></div></li>
+                            <li><div class="pic"><a href="/images/honor4.jpg" target="_blank"></a><img src="/images/honor4.jpg" width="213" height="301" /></div></li>
+                            <li><div class="pic"><a href="/images/honor5.jpg" target="_blank"></a><img src="/images/honor5.jpg" width="213" height="301" /></div></li>
+                            <li><div class="pic"><a href="/images/honor6.jpg" target="_blank"></a><img src="/images/honor6.jpg" width="213" height="301" /></div></li>
+                            <li><div class="pic"><a href="/images/honor7.jpg" target="_blank"></a><img src="/images/honor7.jpg" width="213" height="301" /></div></li>
+                            <li><div class="pic"><a href="/images/honor8.jpg" target="_blank"></a><img src="/images/honor8.jpg" width="213" height="301" /></div></li>
+                            <li><div class="pic"><a href="/images/honor9.jpg" target="_blank"></a><img src="/images/honor9.jpg" width="213" height="301" /></div></li>
+                            <li><div class="pic"><a href="/images/honor10.jpg" target="_blank"></a><img src="/images/honor10.jpg" width="213" height="301" /></div></li>
+                            <li><div class="pic"><a href="/images/honor11.jpg" target="_blank"></a><img src="/images/honor11.jpg" width="213" height="301" /></div></li>
+                            <li><div class="pic"><a href="/images/honor12.jpg" target="_blank"></a><img src="/images/honor12.jpg" width="213" height="301" /></div></li>
+                            <li><div class="pic"><a href="/images/honor13.jpg" target="_blank"></a><img src="/images/honor13.jpg" width="213" height="301" /></div></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                    jQuery("#picScroll-left1").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:5,trigger:"click"});
+                </script>
+            </div>
+        </div>
+
+    </div>
+        </div>
+
+
+    </div>
+</section >
+
+<section id="section3" class="hidden">
+    <div class="row div-video" align="center">
+        <h2>肠胃健康&nbsp;Gastrointestinal health</h2>
+        <video style="width:695px; height:390px;" poster="/images/video2.jpg" preload="auto"  controls="controls"><source src="/video/video2.mp4" /></video>
+    </div>
+    <div class="row row-cpys">
+        <h2>产品优势&nbsp;Product advantage</h2>
+
+
+        <div class="ny_pro_ys">
+            <ul>
+                <li>
+                    <div class="tit"><span>肠道中的绿色清道夫——膳食纤维</span></div>
+                    <div class="img">
+                        <div class="con"><div>
+                            肠道中的微生物： 人的肠道栖息着400多种细菌，其数量超过100万亿个。
+                            <br>有害菌制造毒素，滞留宿便，腐败肠道，占优势时，机体老化，疾病发生，肠道功能减弱；
+                            <br>有益菌清洁肠道，消灭细菌，分解宿便。当人体内有益菌占优势时，就会表现出机体年轻，健康充满活力，肠道功能增强。科学家发现，母乳喂养的婴儿肠内有益菌占总菌量的95%以上，60岁时只占1%左右。					</div></div>
+                        <img src="/images/ys1.jpg" width="322" height="362">
+                    </div>
+                </li>
+                <li>
+                    <div class="tit"><span>肠道中的主战将——益生菌</span></div>
+                    <div class="img">
+                        <div class="con"><div>
+                            肠道中的微生物： 人的肠道栖息着400多种细菌，其数量超过100万亿个。
+                            <br>有害菌制造毒素，滞留宿便，腐败肠道，占优势时，机体老化，疾病发生，肠道功能减弱；
+                            <br>有益菌清洁肠道，消灭细菌，分解宿便。当人体内有益菌占优势时，就会表现出机体年轻，健康充满活力，肠道功能增强。科学家发现，母乳喂养的婴儿肠内有益菌占总菌量的95%以上，60岁时只占1%左右。					</div></div>
+                        <img src="/images/ys2.jpg" width="322" height="362">
+                    </div>
+                </li>
+                <li>
+                    <div class="tit"><span>肠道中的伙食军——益生元</span></div>
+                    <div class="img">
+                        <div class="con"><div>
+                            肠道中的微生物： 人的肠道栖息着400多种细菌，其数量超过100万亿个。
+                            <br>有害菌制造毒素，滞留宿便，腐败肠道，占优势时，机体老化，疾病发生，肠道功能减弱；
+                            <br>有益菌清洁肠道，消灭细菌，分解宿便。当人体内有益菌占优势时，就会表现出机体年轻，健康充满活力，肠道功能增强。科学家发现，母乳喂养的婴儿肠内有益菌占总菌量的95%以上，60岁时只占1%左右。					</div></div>
+                        <img src="/images/ys3.jpg" width="322" height="362">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+    <div class="row row-hxcf">
+        <h2>核心成分&nbsp;Nuclear</h2>
+
+        <div class="ny_pro_cf">
+            <div class="b_img">
+                <div class="l_btn" id="l_btn"><img src="/images/product_08.jpg"></div>
+                <div class="r_btn" id="r_btn"><img src="/images/product_09.jpg"></div>
+                <div class="box" id="box">
+                    <div class="img"><img src="/images/pd1.jpg"></div>
+                    <div class="tit">益生菌</div>
+                    <div class="con">活细菌和酵母菌对健康有好处，可有效抑止有害的生物并改善消化系统及营养摄取。</div>
+                </div>
+            </div>
+            <ul>
+                <li class="on" id="cf_li1" onclick="show_cf('1','益生菌','活细菌和酵母菌对健康有好处，可有效抑止有害的生物并改善消化系统及营养摄取；','/images/pd1.jpg')"><img src="/images/pd1.jpg"></li>
+                <li id="cf_li2" onclick="show_cf('2','晶状果糖','在水果、蜂蜜、蔬菜中发现的一种天然果糖；','/images/pd2.jpg')"><img src="/images/pd2.jpg"></li>
+                <li id="cf_li3" onclick="show_cf('3','叶绿素','有造血、提供维生素、解毒、抗病等多种用途；','/images/pd3.jpg')"><img src="/images/pd3.jpg"></li>
+                <li id="cf_li4" onclick="show_cf('4','洋车前草种壳','主要由半纤维素组成，在结肠内部分分解，具有极高的保水性和膨润性，能使排便顺畅；','/images/pd4.jpg')"><img src="/images/pd4.jpg"></li>
+                <li id="cf_li5" onclick="show_cf('5','蔬果粉','富含丰富的膳食纤维及各种维生素和微量元素，能够通过刺激消化道来调节胃肠蠕动，增加免疫力，是抗衰老，改善皮肤状况，增进人体自然净化及排毒功能；','/images/pd5.jpg')"><img src="/images/pd5.jpg"></li>
+                <li id="cf_li6" onclick="show_cf('6','果酸','柑橘类水果中的弱有机酸，帮助缓冲酸性溶液的ph值，有助于降低胆固醇；','/images/pd6.jpg')"><img src="/images/pd6.jpg"></li>
+                <li id="cf_li7" onclick="show_cf('7','益生元','一种膳食补充剂，刺激有益菌群的生长；','/images/pd7.jpg')"><img src="/images/pd7.jpg"></li>
+                <li id="cf_li8" onclick="show_cf('8','乳糖','可刺激肠道内乳糖酶的活性并增加一定数量，有效帮助分解乳糖','/images/pd8.jpg')"><img src="/images/pd8.jpg"></li>
+                <li id="cf_li9" onclick="show_cf('9','瓜尔豆胶','由瓜尔豆提取，起到稳定作用；','/images/pd9.jpg')"><img src="/images/pd9.jpg"></li>
+                <li id="cf_li10" onclick="show_cf('10','百香果味粉','含有人体所需17种氨基酸、多种维生素和类胡萝卜素；','/images/pd10.jpg')"><img src="/images/pd10.jpg"></li>
+            </ul>
+            <script>
+                function show_cf(id,tit,con,img){
+                    $('#box .img').html('<img src="'+img+'" />');
+                    $('#box .tit').html(tit);
+                    $('#box .con').html(con);
+                    $('#cf_li'+id).addClass("on").siblings().removeClass("on");;
+                }
+            </script>
+        </div>
+    </div>
+    </div>
+</section>
+
+<div class="footer">
+    <div class="copyright">
+        ©Copyright 2013-2017 Yilos,Ltd. All rights reserved. 苏ICP备13049942号-1
+    </div>
+    <ul class="statement">
+        <li><a href="">隐私声明</a></li>
+        <li><a href="">安全声明</a></li>
+        <li><a href="">站点地图</a></li>
+    </ul>
+</div>
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">欢迎联系选购DeSlim益生菌产品</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <form role="form" class="form-horizontal" id="mainForm">
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">姓名</label>
+                            <div class="col-sm-10">
+                                <input type="name" class="form-control" id="name" name="name"
+                                       placeholder="请输入姓名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-sm-2 control-label">联系电话</label>
+                            <div class="col-sm-10">
+                                <input type="name" class="form-control" id="phone" name="phone"
+                                       placeholder="请输入联系电话">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="dist" class="col-sm-2 control-label">所在地区</label>
+                            <div class="col-sm-10" id="dist">
+                                <div data-toggle="distpicker" class="area-select">
+                                    <select name="province" data-province="广东省" class="form-control"></select>
+                                    <select name="city" data-city="深圳市" class="form-control"></select>
+                                    <select name="district" data-district="福田区" class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="col-sm-2 control-label">详细地址</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="address" name="address" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="remark" class="col-sm-2 control-label">备注</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="remark" name="remark" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="btnSubmit">提交请求</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+<script type="text/javascript">
+    function menuChange(index){
+        $("section[id^='section']").each(function(){
+            $(this).addClass("hidden");
+        });
+        $("#section"+index).removeClass("hidden")
+        $(".navbar-nav li").each(function(){
+            $(this).removeClass("active");
+        });
+        $(".navbar-nav ul li:nth-child("+(index+1)+")").addClass("active");
+    }
+
+
+    $("#distpicker").distpicker({autoSelect: false});
+
+    $(document).ready(function(){
+        $("#btnSubmit").click(function(){
+            $.post('http://localhost:8080',$('#mainForm').serialize(),function(data){
+                alert(data=='1'?"已收到您的订单请求,稍后会有工作人员与您联系.":"出错请重试,如继续出错请联系电话18888888888");
+            },"text");
+        });
+    });
+</script>
+</body>
+</html>
