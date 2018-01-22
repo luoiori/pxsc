@@ -45,7 +45,7 @@
     </nav>
 </header>
 
-<div class="row">
+<div class="row myCarousel-row">
     <div id="myCarousel" class="carousel slide">
         <!-- 轮播（Carousel）指标 -->
         <ol class="carousel-indicators">
@@ -54,7 +54,7 @@
             <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
         <!-- 轮播（Carousel）项目 -->
-        <div class="carousel-inner">
+        <div class="carousel-inner" align="center">
             <div class="item active">
                 <img src="/images/lb1.jpg" alt="">
             </div>
@@ -409,9 +409,17 @@
 
     $(document).ready(function(){
         $("#btnSubmit").click(function(){
-            $.post('http://localhost:8080',$('#mainForm').serialize(),function(data){
+            $.ajax({
+                url: '/',
+                data: $('#mainForm').serialize(),
+                dataType: "json",
+                type: "POST"
+            }).done(function(data){
                 alert(data=='1'?"已收到您的订单请求,稍后会有工作人员与您联系.":"出错请重试,如继续出错请联系电话18888888888");
-            },"text");
+            }).fail(function(error){
+                console.log(error)
+            });
+
         });
     });
 </script>

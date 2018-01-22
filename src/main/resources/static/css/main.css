@@ -5,8 +5,11 @@ header{
 header nav a,.navbar .navbar-header a {
     color: #ffffff;
 }
-.active{
+.nav .active{
     background-color: #47a4a9;
+}
+.row{
+	margin:0!important;
 }
 .nav>li>a:focus, .nav>li>a:hover {
     text-decoration: none;
@@ -144,7 +147,7 @@ p {
 .row-company {
     margin-top: 20px;
 }
-.row-company h2,.row-csr h2,.row-honor h2{
+.row-company h2,.row-csr h2,.row-honor h2, .div-video h2, .div-video img{
     text-align: center;
     margin: 40px 0px 40px 0px;
 }

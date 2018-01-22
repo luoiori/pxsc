@@ -1,6 +1,8 @@
 package com.iori.psxc;
 
 public class Custom {
+    private Long id;
+
     private String name;
 
     private String phone;
@@ -69,6 +71,14 @@ public class Custom {
 
     public void setDistrict(String district) {
         this.district = district;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override
