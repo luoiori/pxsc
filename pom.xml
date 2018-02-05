@@ -83,7 +83,12 @@
             <groupId>org.jdom</groupId>
             <artifactId>jdom2</artifactId>
         </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>RELEASE</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>

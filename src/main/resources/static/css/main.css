@@ -147,7 +147,7 @@ p {
 .row-company {
     margin-top: 20px;
 }
-.row-company h2,.row-csr h2,.row-honor h2, .div-video h2, .div-video img{
+.row-company h2,.row-csr h2,.row-honor h2, .div-video h2, .div-video img, .row-client-say h1{
     text-align: center;
     margin: 40px 0px 40px 0px;
 }
@@ -367,3 +367,4 @@ li, dl, dt, dd {
     float: left;
     margin-right: 10px;
 }
+.lable-red{color: red}

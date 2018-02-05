@@ -34,4 +34,9 @@ public class MainController {
     public String get(){
         return "index";
     }
+
+    @RequestMapping(value = "/store",method = RequestMethod.GET)
+    public String getStore(){
+        return "index";
+    }
 }

@@ -21,4 +21,9 @@ public class CustomServiceImpl implements ICustomService {
             return 0;
         }
     }
+
+    @Override
+    public int maxid() {
+        return customMapper.maxid();
+    }
 }

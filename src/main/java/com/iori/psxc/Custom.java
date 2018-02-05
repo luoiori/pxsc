@@ -17,6 +17,14 @@ public class Custom {
 
     private String district;
 
+    private int count;
+
+    private double price;
+
+    private double totalPrice;
+
+    private String ip="1.1.1.1";
+
     public String getName() {
         return name;
     }
@@ -86,9 +94,44 @@ public class Custom {
         StringBuilder sb = new StringBuilder();
         sb.append("姓名:"+getName()+"<br/>");
         sb.append("电话:"+getPhone()+"<br/>");
+        sb.append("数量:"+getCount()+"<br/>");
+        sb.append("单价:"+getPrice()+"<br/>");
+        sb.append("总价:"+getTotalPrice()+"<br/>");
         sb.append("地区:"+getProvince()+" "+getCity()+" "+getDistrict()+"<br/>");
         sb.append("地址:"+getAddress()+"<br/>");
         sb.append("备注:"+getRemark());
         return sb.toString();
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
     }
 }

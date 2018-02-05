@@ -1,7 +1,6 @@
 package com.iori.psxc;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 import javax.mail.Message;
@@ -11,29 +10,27 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-@PropertySource(value = "classpath:/mail.properties",encoding = "utf-8")
+@ConfigurationProperties("mail")
 @Service
 public class MailUtil {
 
-    @Value("${mail.from}")
     private String from;
 
-    @Value("${mail.pwd}")
     private String pwd;
 
-    @Value("${mail.to}")
     private String to;
 
-    @Value("${mail.host}")
     private String host;
 
-    @Value("${mail.subject}")
     private String subject;
 
     public void sendMail(Custom custom){
         try {
             Properties prop = new Properties();
             prop.setProperty("mail.host", host);
+            prop.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+            prop.setProperty("mail.smtp.socketFactory.port", "465");
+            prop.setProperty("mail.smtp.port", "465");
             prop.setProperty("mail.transport.protocol", "smtp");
             prop.setProperty("mail.smtp.auth", "true");
             Session session = Session.getInstance(prop);
@@ -85,5 +82,13 @@ public class MailUtil {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
 }

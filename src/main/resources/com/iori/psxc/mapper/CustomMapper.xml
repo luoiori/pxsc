@@ -20,4 +20,8 @@
         values (#{name},#{phone},#{address},#{remark},#{province},#{city},#{district},now())
     </insert>
 
+    <select id="maxid" resultType="int">
+        select max(id) from custom
+    </select>
+
 </mapper>

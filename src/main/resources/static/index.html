@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
+    <title>Deslim益生菌纤维</title>
+    <meta name="keywords" content="菩萨心肠生物,Deslim益生菌纤维,益生菌的作用,益生菌减肥,益生菌,益生菌代理,益生菌哪个牌子好,最好的益生菌纤维">
+    <meta name="description" content="Deslim生菌纤维是由深圳菩萨心肠生物科技联合卫生部门巨资打造的健康品牌，富含益生菌益生元和膳食纤维，是肠道健康的第四餐.">
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/video-js.min.css" >
@@ -14,6 +16,8 @@
     <script src="/js/jquery.SuperSlide.2.1.1.js" ></script>
     <script src="/js/distpicker.data.min.js"></script>
     <script src="/js/distpicker.min.js"></script>
+    <script src="/js/qrcode.min.js"></script>
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
 </head>
 <body>
 <header class="navbar navbar-static-top bs-docs-nav" id="top">
@@ -95,7 +99,7 @@
         </div>
     </div>
     <div class="row row-client-say" align="center">
-        <h1>看看乐斯的客户们在说些什么</h1>
+        <h1>看看喝过菩萨心肠的人怎么说</h1>
     </div>
     <div class="row client">
         <ul>
@@ -345,21 +349,46 @@
                 <div class="row">
                     <form role="form" class="form-horizontal" id="mainForm">
                         <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">姓名</label>
+                            <label  class="col-sm-2 ">产品名称</label>
                             <div class="col-sm-10">
-                                <input type="name" class="form-control" id="name" name="name"
+                                <label class="pull-left">菩萨心肠DeSlim益生菌膳食纤维</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 ">单价</label>
+                            <div class="col-sm-10">
+                                <label id="price">¥0.01</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 ">数量</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="count" name="count"
+                                       placeholder="请输入数量">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 ">总价</label>
+                            <div class="col-sm-10">
+                                <label class="pull-left" id="totalPrice"></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 ">姓名</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="name" name="name"
                                        placeholder="请输入姓名">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="phone" class="col-sm-2 control-label">联系电话</label>
+                            <label for="phone" class="col-sm-2 ">联系电话</label>
                             <div class="col-sm-10">
-                                <input type="name" class="form-control" id="phone" name="phone"
+                                <input type="text" class="form-control" id="phone" name="phone"
                                        placeholder="请输入联系电话">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="dist" class="col-sm-2 control-label">所在地区</label>
+                            <label for="dist" class="col-sm-2 ">所在地区</label>
                             <div class="col-sm-10" id="dist">
                                 <div data-toggle="distpicker" class="area-select">
                                     <select name="province" data-province="广东省" class="form-control"></select>
@@ -369,15 +398,22 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="address" class="col-sm-2 control-label">详细地址</label>
+                            <label for="address" class="col-sm-2 ">详细地址</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" id="address" name="address" rows="5"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="remark" class="col-sm-2 control-label">备注</label>
+                            <label for="remark" class="col-sm-2 ">备注</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" id="remark" name="remark" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group" style="display: none">
+                            <label  class="col-sm-10 col-sm-offset-2 lable-red">请用微信扫描二维码进行支付</label>
+                            <label  class="col-sm-2 ">微信支付</label>
+                            <div class="col-sm-10" id="qrcode">
+
                             </div>
                         </div>
                     </form>
@@ -408,14 +444,30 @@
     $("#distpicker").distpicker({autoSelect: false});
 
     $(document).ready(function(){
+
+        $("#count").on('keyup',function(){
+            var count = $("#count").val();
+            var price = $("#price").html();
+            $("#totalPrice").html(price.substr(0,1)+count*price.substr(1,price.length));
+        });
+
         $("#btnSubmit").click(function(){
+            var ip = returnCitySN["cip"];
             $.ajax({
-                url: '/',
+                url: '/api/weixin/pay',
                 data: $('#mainForm').serialize(),
                 dataType: "json",
                 type: "POST"
             }).done(function(data){
-                alert(data=='1'?"已收到您的订单请求,稍后会有工作人员与您联系.":"出错请重试,如继续出错请联系电话18888888888");
+                console.log(data);
+                if(data.ret_code==1){
+                    debugger;
+                    url = data.ret_msg;
+                    new QRCode(document.getElementById('qrcode'), url);
+                    $("#qrcode").parent().show();
+                }else{
+                    alert("出错!请联系电话18888888888");
+                }
             }).fail(function(error){
                 console.log(error)
             });
