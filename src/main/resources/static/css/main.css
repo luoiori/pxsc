@@ -149,7 +149,7 @@ p {
 }
 .row-company h2,.row-csr h2,.row-honor h2, .div-video h2, .div-video img, .row-client-say h1{
     text-align: center;
-    margin: 40px 0px 40px 0px;
+    margin: 60px 0px 40px 0px;
 }
 .row-hxcf h2,.row-cpys h2{
     text-align: center;
@@ -368,3 +368,5 @@ li, dl, dt, dd {
     margin-right: 10px;
 }
 .lable-red{color: red}
+
+.div-brand{margin-top: 60px;}
