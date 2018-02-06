@@ -1,4 +1,4 @@
-package service;
+package com.iori.service;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -6,7 +6,8 @@ import java.security.*;
 import java.security.cert.CertificateException;
 import java.util.*;
 
-import constant.GlobalConfig;
+import com.iori.constant.GlobalConfig;
+import com.iori.utils.XMLUtil;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -20,8 +21,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.jdom2.JDOMException;
-import utils.MD5Util;
-import utils.XMLUtil;
+import com.iori.utils.MD5Util;
 
 import javax.net.ssl.SSLContext;
 

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/video-js.min.css" >
+    <link rel="stylesheet" href="/css/bootstrap-dialog.min.css" >
 
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
@@ -17,6 +18,7 @@
     <script src="/js/distpicker.data.min.js"></script>
     <script src="/js/distpicker.min.js"></script>
     <script src="/js/qrcode.min.js"></script>
+    <script src="/js/bootstrap-dialog.min.js"></script>
     <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
 </head>
 <body>
@@ -407,6 +409,7 @@
                             <label for="remark" class="col-sm-2 ">备注</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" id="remark" name="remark" rows="3"></textarea>
+                                <input type="hidden" class="form-control" id="ip" name="ip" />
                             </div>
                         </div>
                         <div class="form-group" style="display: none">
@@ -426,7 +429,9 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
-
+<div id="mask" class="mask">
+    <img src="/images/loading.gif" alt="">
+</div>
 
 <script type="text/javascript">
     function menuChange(index){
@@ -471,6 +476,8 @@
             }
 
             var ip = returnCitySN["cip"];
+            $("#ip").val(ip);
+            showMask();
             $.ajax({
                 url: '/api/weixin/pay',
                 data: $('#mainForm').serialize(),
@@ -479,18 +486,66 @@
             }).done(function(data){
                 console.log(data);
                 if(data.ret_code==1){
-                    debugger;
-                    url = data.ret_msg;
+                    var url = data.ret_msg.code_url;
+                    var id = data.ret_msg.id;
                     new QRCode(document.getElementById('qrcode'), url);
                     $("#qrcode").parent().show();
+                    // 按钮禁用
+                    $("#btnSubmit").attr("disabled","disabled");
+                    // 定时检查
+
+                    var pay_result = 0;
+                    var timer = setInterval(function(){
+                        $.post('/api/weixin/pay_result',{"id":id},function(data){
+                            console.log("return pay result="+data);
+                            if(data=="1"){
+                                clearInterval(timer);
+                                $("#myModal").modal('hide');
+                                BootstrapDialog.show({
+                                    message: '支付成功！我们将尽快为您发货。有任何问题请联系页面上的电话。',
+                                    type: 'type-success' ,
+                                    title: '支付成功',
+                                    size:'size-large',
+                                    buttons: [{
+                                        id: 'btn-close',
+                                        label: '关闭',
+                                        cssClass: 'btn-success',
+                                        autospin: false,
+                                        action: function(dialogRef){
+                                            dialogRef.close();
+                                            location.reload();
+                                        }
+                                    }]
+                                });
+
+                            }
+                            console.log('not prepared');
+                        },"text");
+                    },2000);
+
                 }else{
                     alert("出错!请联系电话18888888888");
                 }
+                hideMask();
             }).fail(function(error){
                 console.log(error)
             });
 
         });
+
+
+        //显示遮罩层
+        function showMask(){
+            $("#mask").css("height",$(document).height());
+            $("#mask").css("width",$(document).width());
+            $("#mask").show();
+        }
+        //隐藏遮罩层
+        function hideMask(){
+            $("#mask").hide();
+        }
+
+
     });
 </script>
 </body>

@@ -3,6 +3,8 @@ package com.iori.psxc;
 public class Custom {
     private Long id;
 
+    private String tradno;
+
     private String name;
 
     private String phone;
@@ -24,6 +26,10 @@ public class Custom {
     private double totalPrice;
 
     private String ip="1.1.1.1";
+
+    private int paid;
+
+    private double paidPrice;
 
     public String getName() {
         return name;
@@ -100,6 +106,9 @@ public class Custom {
         sb.append("地区:"+getProvince()+" "+getCity()+" "+getDistrict()+"<br/>");
         sb.append("地址:"+getAddress()+"<br/>");
         sb.append("备注:"+getRemark());
+        sb.append("系统单号:"+getTradno());
+        sb.append("是否支付:"+(getPaid()==1?"是":"否"));
+        sb.append("支付金额:"+getPaidPrice());
         return sb.toString();
     }
 
@@ -133,5 +142,29 @@ public class Custom {
 
     public void setIp(String ip) {
         this.ip = ip;
+    }
+
+    public int getPaid() {
+        return paid;
+    }
+
+    public void setPaid(int paid) {
+        this.paid = paid;
+    }
+
+    public double getPaidPrice() {
+        return paidPrice;
+    }
+
+    public void setPaidPrice(double paidPrice) {
+        this.paidPrice = paidPrice;
+    }
+
+    public String getTradno() {
+        return tradno;
+    }
+
+    public void setTradno(String tradno) {
+        this.tradno = tradno;
     }
 }

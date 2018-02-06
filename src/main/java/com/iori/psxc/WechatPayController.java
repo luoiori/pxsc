@@ -4,16 +4,17 @@ package com.iori.psxc; /**
 
 import com.alibaba.fastjson.JSONObject;
 import com.iori.psxc.service.ICustomService;
-import constant.GlobalConfig;
+import com.iori.constant.GlobalConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import service.WechatPayService;
-import utils.QRCodeUtil;
-import utils.ResponseHandler;
-import utils.TenpayUtil;
+import com.iori.service.WechatPayService;
+import com.iori.utils.QRCodeUtil;
+import com.iori.utils.ResponseHandler;
+import com.iori.utils.TenpayUtil;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -42,9 +42,16 @@ public class WechatPayController {
 	@Autowired
 	private ICustomService customService;
 
+	@Autowired
+	private MailUtil mailUtil;
+
 	@RequestMapping("/pay")
 	public String getCodeUrl(HttpServletResponse response, HttpServletRequest request,Custom custom)
 			throws Exception {
+
+		custom.setPrice(new BigDecimal(price).divide(new BigDecimal(100)).doubleValue());
+		custom.setTotalPrice(new BigDecimal(custom.getPrice()).multiply(new BigDecimal(custom.getCount())).doubleValue());
+		customService.insert(custom);
 
 		String currTime = TenpayUtil.getCurrTime();
 		String strTime = currTime.substring(8, currTime.length());
@@ -78,7 +85,11 @@ public class WechatPayController {
 			return ret_error("出错");
 		}
 
-		return ret_success(code_url);
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("id",custom.getId());
+		map.put("code_url",code_url);
+
+		return ret_success(map);
 	}
 
 	private String randomTradeNo() {
@@ -90,6 +101,17 @@ public class WechatPayController {
 	public void getQrCode(String code_url, HttpServletResponse response) throws Exception {
 		ServletOutputStream sos = response.getOutputStream();
 		QRCodeUtil.encode(code_url, sos);
+	}
+
+	@RequestMapping(value="/pay_result",method = RequestMethod.POST)
+	@ResponseBody
+	public int payResult(HttpServletRequest request) throws Exception {
+		System.out.println("check result");
+		String no =request.getParameter("no");
+		if(no != null && no != ""){
+			return customService.getByTradNo(no).getPaid();
+		}
+		return 0;
 	}
 
 	/**
@@ -105,8 +127,33 @@ public class WechatPayController {
 		if (resHandler.isTenpaySign()) {
 			String resXml = "";
 			if ("SUCCESS".equals(resHandler.getParameter("result_code"))) {
-				resXml = "<xml>" + "<return_code><![CDATA[SUCCESS]]></return_code>"
-						+ "<return_msg><![CDATA[OK]]></return_msg>" + "</xml> ";
+				String no = resHandler.getParameter("out_trade_no");
+				String total_fee = resHandler.getParameter("total_fee");
+
+				Custom custom = customService.getByTradNo(no);
+				boolean amountResult = new BigDecimal(total_fee).divide(new BigDecimal(100))
+						.compareTo(new BigDecimal(custom.getTotalPrice())) == 0;
+				if(amountResult){
+					custom.setPaid(1);
+					custom.setPaidPrice(Double.parseDouble(total_fee));
+					customService.updateByTradNo(custom);
+
+					new Thread(new Runnable() {
+						@Override
+						public void run() {
+							mailUtil.sendMail(custom);
+						}
+					}).start();
+
+					resXml = "<xml>" + "<return_code><![CDATA[SUCCESS]]></return_code>"
+							+ "<return_msg><![CDATA[OK]]></return_msg>" + "</xml> ";
+				}else{
+					System.out.println("支付失败,金额对不上");
+					resXml = "<xml>" + "<return_code><![CDATA[FAIL]]></return_code>"
+							+ "<return_msg><![CDATA[金额对不上]]></return_msg>" + "</xml> ";
+				}
+
+
 			} else {
 				System.out.println("支付失败,错误信息：" + resHandler.getParameter("err_code"));
 				resXml = "<xml>" + "<return_code><![CDATA[FAIL]]></return_code>"

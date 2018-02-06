@@ -4,6 +4,7 @@
 <mapper namespace="com.iori.psxc.mapper.CustomMapper">
     <resultMap id="CustomMap" type="com.iori.psxc.Custom">
         <id column="id" property="id" />
+        <result column="tradno" property="tradno" />
         <result column="name" property="name" />
         <result column="phone" property="phone" />
         <result column="address" property="address" />
@@ -12,16 +13,32 @@
         <result column="city" property="city" />
         <result column="district" property="district" />
         <result column="time" property="time" />
+        <result column="count" property="count" />
+        <result column="price" property="price" />
+        <result column="totalPrice" property="totalPrice" />
+        <result column="ip" property="ip" />
+        <result column="paid" property="paid" />
+        <result column="paidPrice" property="paidPrice" />
     </resultMap>
 
 
     <insert id="insert" keyProperty="id" parameterType="com.iori.psxc.Custom" useGeneratedKeys="true" keyColumn="id">
-        insert into custom (name,phone,address,remark,province,city,district,time)
-        values (#{name},#{phone},#{address},#{remark},#{province},#{city},#{district},now())
+        insert into custom (tradno,name,phone,address,remark,province,city,district,time,count,price,totalPrice,ip,paid,paidPrice)
+        values (#{tradno},#{name},#{phone},#{address},#{remark},#{province},#{city},#{district},now(),#{count},#{price},#{totalPrice},#{ip},#{paid},#{paidPrice})
     </insert>
 
     <select id="maxid" resultType="int">
         select max(id) from custom
     </select>
+
+    <select id="getByTradNo" parameterType="String" resultType="com.iori.psxc.Custom">
+        select id,tradno,name, phone, address, remark, province, city, district, time,count, price, totalPrice, ip, paid,paidPrice
+        from custom
+        WHERE tradno=#{value}
+    </select>
+
+    <update id="updateByTradNo" parameterType="com.iori.psxc.Custom">
+        update custom set paid = #{paid},paidPrice=#{paidPrice} where tradno=#{tradno}
+    </update>
 
 </mapper>

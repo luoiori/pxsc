@@ -1,4 +1,4 @@
-package utils;
+package com.iori.utils;
 
 import java.security.MessageDigest;
 

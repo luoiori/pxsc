@@ -15,6 +15,7 @@ public class CustomServiceImpl implements ICustomService {
     @Override
     public int insert(Custom custom){
         try {
+            custom.setPaid(0);
             return customMapper.insert(custom);
         }catch(Exception e){
             e.printStackTrace();
@@ -25,5 +26,15 @@ public class CustomServiceImpl implements ICustomService {
     @Override
     public int maxid() {
         return customMapper.maxid();
+    }
+
+    @Override
+    public Custom getByTradNo(String no) {
+        return customMapper.getByTradNo(no);
+    }
+
+    @Override
+    public void updateByTradNo(Custom custom) {
+        customMapper.updateByTradNo(custom);
     }
 }

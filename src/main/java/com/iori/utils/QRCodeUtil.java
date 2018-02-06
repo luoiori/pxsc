@@ -1,4 +1,4 @@
-package utils;
+package com.iori.utils;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;

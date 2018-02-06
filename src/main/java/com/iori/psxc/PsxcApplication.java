@@ -10,7 +10,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @MapperScan(value = {"com.iori.psxc.mapper"})
 @ComponentScan(basePackages = {"com.iori.psxc.mapper","com.iori.psxc.service",
-		"com.iori.psxc"})
+		"com.iori.psxc","com.iori.constant"})
 @SpringBootApplication
 public class PsxcApplication {
 

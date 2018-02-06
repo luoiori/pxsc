@@ -6,4 +6,8 @@ public interface ICustomService {
     int insert(Custom custom);
 
     int maxid();
+
+    Custom getByTradNo(String no);
+
+    void updateByTradNo(Custom custom);
 }

@@ -1,4 +1,4 @@
-package utils;
+package com.iori.utils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
