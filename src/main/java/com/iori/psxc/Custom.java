@@ -105,10 +105,10 @@ public class Custom {
         sb.append("总价:"+getTotalPrice()+"<br/>");
         sb.append("地区:"+getProvince()+" "+getCity()+" "+getDistrict()+"<br/>");
         sb.append("地址:"+getAddress()+"<br/>");
-        sb.append("备注:"+getRemark());
-        sb.append("系统单号:"+getTradno());
-        sb.append("是否支付:"+(getPaid()==1?"是":"否"));
-        sb.append("支付金额:"+getPaidPrice());
+        sb.append("备注:"+getRemark()+"<br/>");
+        sb.append("系统单号:"+getTradno()+"<br/>");
+        sb.append("是否支付:"+(getPaid()==1?"是":"否")+"<br/>");
+        sb.append("支付金额:"+getPaidPrice()+"<br/>");
         return sb.toString();
     }
 

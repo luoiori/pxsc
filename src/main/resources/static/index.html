@@ -430,7 +430,7 @@
     </div><!-- /.modal -->
 </div>
 <div id="mask" class="mask">
-    <img src="/images/loading.gif" alt="">
+    <img src="/images/loading.gif" alt="" style="display: none;">
 </div>
 
 <script type="text/javascript">
@@ -487,7 +487,7 @@
                 console.log(data);
                 if(data.ret_code==1){
                     var url = data.ret_msg.code_url;
-                    var id = data.ret_msg.id;
+                    var no = data.ret_msg.no;
                     new QRCode(document.getElementById('qrcode'), url);
                     $("#qrcode").parent().show();
                     // 按钮禁用
@@ -496,7 +496,7 @@
 
                     var pay_result = 0;
                     var timer = setInterval(function(){
-                        $.post('/api/weixin/pay_result',{"id":id},function(data){
+                        $.post('/api/weixin/pay_result',{"no":no},function(data){
                             console.log("return pay result="+data);
                             if(data=="1"){
                                 clearInterval(timer);
@@ -538,11 +538,15 @@
         function showMask(){
             $("#mask").css("height",$(document).height());
             $("#mask").css("width",$(document).width());
+            $("#mask").find("img").css("top",$(window).height()/2+"px");
+            $("#mask").find("img").css("left",$(window).width()/2+"px");
             $("#mask").show();
+            $("#mask").find("img").show();
         }
         //隐藏遮罩层
         function hideMask(){
             $("#mask").hide();
+            $("#mask").find("img").hide();
         }
 
 

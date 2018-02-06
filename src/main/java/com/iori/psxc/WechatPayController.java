@@ -27,10 +27,8 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/weixin")
@@ -49,6 +47,8 @@ public class WechatPayController {
 	public String getCodeUrl(HttpServletResponse response, HttpServletRequest request,Custom custom)
 			throws Exception {
 
+		String out_trade_no = randomTradeNo();
+		custom.setTradno(out_trade_no);
 		custom.setPrice(new BigDecimal(price).divide(new BigDecimal(100)).doubleValue());
 		custom.setTotalPrice(new BigDecimal(custom.getPrice()).multiply(new BigDecimal(custom.getCount())).doubleValue());
 		customService.insert(custom);
@@ -60,7 +60,6 @@ public class WechatPayController {
 
 
 		String body = "菩萨心肠DeSlim益生菌膳食纤维*"+custom.getCount();
-		String out_trade_no = randomTradeNo();
 		String order_price =  new BigDecimal(price).multiply(new BigDecimal(custom.getCount())).intValue()+"";
 		//String spbill_create_ip = request.getRemoteAddr();
 		String spbill_create_ip = custom.getIp();
@@ -86,14 +85,15 @@ public class WechatPayController {
 		}
 
 		Map<String,Object> map = new HashMap<String,Object>();
-		map.put("id",custom.getId());
+		map.put("no",custom.getTradno());
 		map.put("code_url",code_url);
 
 		return ret_success(map);
 	}
 
 	private String randomTradeNo() {
-		return System.currentTimeMillis()+""+(customService.maxid()+1);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+		return sdf.format(new Date())+System.currentTimeMillis()+""+(customService.maxid()+1);
 	}
 
 	@RequestMapping("/QRcode")
@@ -132,10 +132,10 @@ public class WechatPayController {
 
 				Custom custom = customService.getByTradNo(no);
 				boolean amountResult = new BigDecimal(total_fee).divide(new BigDecimal(100))
-						.compareTo(new BigDecimal(custom.getTotalPrice())) == 0;
+						.compareTo(new BigDecimal(Double.toString(custom.getTotalPrice()))) == 0;
 				if(amountResult){
 					custom.setPaid(1);
-					custom.setPaidPrice(Double.parseDouble(total_fee));
+					custom.setPaidPrice(new BigDecimal(total_fee).divide(new BigDecimal(100)).doubleValue());
 					customService.updateByTradNo(custom);
 
 					new Thread(new Runnable() {
