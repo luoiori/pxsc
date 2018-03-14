@@ -20,14 +20,14 @@ header nav a,.navbar .navbar-header a {
     margin-bottom: 0!important;
 }
 .div-video{
-    margin-top: 60px;
+    margin-top: 40px;
     background: url(/images/index_09.jpg) no-repeat center bottom;
 }
 .div-video video{
-    margin-top: 40px;
+    margin-top: 0px;
 }
-.row-bug{
-    margin-top: 60px;
+.row-buy{
+    margin-top: 60px!important;
 }
 .product .product-intro{
     display: block;
@@ -64,9 +64,8 @@ header nav a,.navbar .navbar-header a {
     background-color: #12c287;
     border-radius: 4px;
 }
-
-.client,.row-client-say,row-zj-say{
-    margin-top: 60px;
+.row-zj-say .pb-50{
+    margin-top: 40px;
 }
 
 .client>ul>li {
@@ -130,12 +129,11 @@ p {
     margin-top: 50px;
 }
 .pb-50 {
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 .footer {
     color: #fff;
     background-color: #5ab5bb;
-    height: 60px;
     width: 100%;
     line-height: 60px;
     padding: 0 120px;
@@ -147,9 +145,13 @@ p {
 .row-company {
     margin-top: 20px;
 }
-.row-company h2,.row-csr h2,.row-honor h2, .div-video h2, .div-video img, .row-client-say h1{
+.row-company h2,.row-csr h2,.row-honor h2, .div-video h2, .div-video img{
     text-align: center;
     margin: 60px 0px 40px 0px;
+}
+.row-client-say h1{
+    text-align: center;
+    margin: 0px 0px 40px 0px;
 }
 .row-hxcf h2,.row-cpys h2{
     text-align: center;
@@ -380,4 +382,11 @@ li, dl, dt, dd {
     position: fixed;
     z-index: 99999;
 }
+.slideshow .slide{
+    margin: 0 10px 0 10px;
+}
 
+#wxqr{
+    margin-top: 20px;
+    float: right;
+}
