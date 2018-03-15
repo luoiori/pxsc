@@ -27,32 +27,24 @@
 </head>
 <body>
 <header class="navbar navbar-static-top bs-docs-nav" id="top">
-    <div class="navbar-header">
-        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a href="#" class="navbar-brand" onclick="menuChange(1)">菩萨心肠</a>
-    </div>
-    <nav id="bs-navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-            <li class="active" onclick="menuChange(1);">
-                <a href="javascript:void(0);">首页</a>
-            </li>
-            <li onclick="menuChange(2);">
-                <a href="javascript:void(0);">关于我们</a>
-            </li>
-            <li onclick="menuChange(3);">
-                <a href="javascript:void(0);" >产品介绍</a>
-            </li>
-
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="" >联系电话:17722431202</a></li>
-        </ul>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">菩萨心肠</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li onclick="menuChange(1);" class="active"><a href="javascript:void(0);">首页</a></li>
+                    <li onclick="menuChange(2);"><a href="javascript:void(0);">关于我们</a></li>
+                    <li onclick="menuChange(3);"><a href="javascript:void(0);">产品介绍</a></li>
+                </ul>
+            </div>
+            <div class="navbar-header-right">
+                <span class="navbar-brand navbar-tel"> 联系电话:17722431202</span>
+            </div>
+        </div>
     </nav>
+
 </header>
 
 <div class="row myCarousel-row">
@@ -154,11 +146,35 @@
             <span class="product-intro">
             益生菌·纤维由新加坡原装进口（马来西亚生产），100%纯天然，不含化学添加剂，其主要成分是益生菌、益生元、膳食纤维，通过改善肠道环境，调节身体机能，促进体内毒素清除，每日饮用，有效管理肠道健康，保持身体年轻活力！
             </span>
-            <p class="za-c-pro-item-price">
-                <span class="price-numb">188</span>
-                <i class="price-unit">元</i>起
-            </p>
-            <span class="za-c-pro-item-btn-link" data-toggle="modal" data-target="#myModal">联系购买</span>
+
+            <div class="div-tc">
+            <label class="label-tc label-tc1" onclick="clickBuy(1)"><span>168/盒</span></label>
+            <label class="label-tc label-tc2" onclick="clickBuy(2)"><span>492/4盒</span></label>
+            <label class="label-tc label-tc3" onclick="clickBuy(3)"><span>2100/20盒</span></label>
+            </div>
+            <script>
+                function clickBuy(index){
+                    $(".div-tc").find(".label-tc").removeClass("active");
+                    $(".modal-tc").find(".label-tc").removeClass("active");
+                    $(".div-tc").find(".label-tc"+index).addClass("active");
+                    $(".modal-tc").find(".label-tc"+index).addClass("active");
+                    $(".label-tc"+index).addClass("active");
+                    $("#mainForm").find("#tc").val(index);
+                }
+            </script>
+
+            <div>
+                <div class="col-md-4 col-btn">
+                    <span class="za-c-pro-item-btn-link" data-toggle="modal" data-target="#myModal">联系购买</span>
+                </div>
+                <div class="col-md-8 wx_qr">
+                    <div class="col-md-12">
+                        <img class="pull-right" src="images/wx_qr.png" width="120px">
+                    </div>
+                    <label class="pull-right"><span>更多优惠联系微信</span></label>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -351,15 +367,9 @@
 </section>
 
 <div class="footer">
-    <div class="col-lg-8">
-        <label>联系电话:17722431202</label><br/>
+    <div class="col-lg-12" align="center">
         <label>©Copyright 2013-2018 Yilos,Ltd. All rights reserved. 苏ICP备13049942号-1</label>
     </div>
-
-    <div class="col-lg-4">
-        <img id="wxqr" src="images/wx_qr.png" width="96px"/>
-    </div>
-
 </div>
 
 
@@ -380,20 +390,32 @@
                                 <label class="pull-left">菩萨心肠DeSlim益生菌膳食纤维</label>
                             </div>
                         </div>
+
                         <div class="form-group">
+                            <label  class="col-sm-2 ">套餐</label>
+                            <div class="col-sm-10 modal-tc">
+                                <label class="label-tc label-tc1" onclick="clickBuy(1)"><span>168/盒</span></label>
+                                <label class="label-tc label-tc2" onclick="clickBuy(2)"><span>492/4盒</span></label>
+                                <label class="label-tc label-tc3" onclick="clickBuy(3)"><span>2100/20盒</span></label>
+                                <input type="hidden" name="tc" id="tc" value="0">
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="display: none">
                             <label  class="col-sm-2 ">单价</label>
                             <div class="col-sm-10">
                                 <label id="price">¥0.01</label>
                             </div>
                         </div>
-                        <div class="form-group">
+
+                        <div class="form-group" style="display: none">
                             <label  class="col-sm-2 ">数量</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="count" name="count"
-                                       placeholder="请输入数量">
+                                       placeholder="请输入数量" value="0">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="display: none">
                             <label  class="col-sm-2 ">总价</label>
                             <div class="col-sm-10">
                                 <label class="pull-left" id="totalPrice"></label>
@@ -490,8 +512,13 @@
             var name=$("#name").val();
             var phone=$("#phone").val();
             var address=$("#address").val();
-            if(!/^[0-9]+$/.test(count)){
+            /*if(!/^[0-9]+$/.test(count)){
                 alert("请输入合法商品数量")
+                return;
+            }*/
+            var tc = $("#mainForm").find("#tc").val();
+            if( !(tc && tc > 0) ){
+                alert("请选择套餐！");
                 return;
             }
             if(name==''||phone==''||address==''){
@@ -548,7 +575,7 @@
                     },2000);
 
                 }else{
-                    alert("出错!请联系电话18888888888");
+                    alert("出错!请联系电话17722431202");
                 }
                 hideMask();
             }).fail(function(error){

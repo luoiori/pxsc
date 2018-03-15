@@ -19,6 +19,8 @@ public class Custom {
 
     private String district;
 
+    private int tc;
+
     private int count;
 
     private double price;
@@ -100,9 +102,8 @@ public class Custom {
         StringBuilder sb = new StringBuilder();
         sb.append("姓名:"+getName()+"<br/>");
         sb.append("电话:"+getPhone()+"<br/>");
-        sb.append("数量:"+getCount()+"<br/>");
-        sb.append("单价:"+getPrice()+"<br/>");
-        sb.append("总价:"+getTotalPrice()+"<br/>");
+        sb.append("套餐:"+getTc()+"<br/>");
+        sb.append("套餐价格:"+getTotalPrice()+"<br/>");
         sb.append("地区:"+getProvince()+" "+getCity()+" "+getDistrict()+"<br/>");
         sb.append("地址:"+getAddress()+"<br/>");
         sb.append("备注:"+getRemark()+"<br/>");
@@ -166,5 +167,13 @@ public class Custom {
 
     public void setTradno(String tradno) {
         this.tradno = tradno;
+    }
+
+    public int getTc() {
+        return tc;
+    }
+
+    public void setTc(int tc) {
+        this.tc = tc;
     }
 }

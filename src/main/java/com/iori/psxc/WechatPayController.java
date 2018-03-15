@@ -50,7 +50,8 @@ public class WechatPayController {
 		String out_trade_no = randomTradeNo();
 		custom.setTradno(out_trade_no);
 		custom.setPrice(new BigDecimal(price).divide(new BigDecimal(100)).doubleValue());
-		custom.setTotalPrice(new BigDecimal(custom.getPrice()).multiply(new BigDecimal(custom.getCount())).doubleValue());
+		// 在数据库计算
+		//custom.setTotalPrice(new BigDecimal(custom.getPrice()).multiply(new BigDecimal(custom.getCount())).doubleValue());
 		customService.insert(custom);
 
 		String currTime = TenpayUtil.getCurrTime();
@@ -58,9 +59,10 @@ public class WechatPayController {
 		String strRandom = TenpayUtil.buildRandom(4) + "";
 		String nonce_str = strTime + strRandom;
 
-
-		String body = "菩萨心肠DeSlim益生菌膳食纤维*"+custom.getCount();
-		String order_price =  new BigDecimal(price).multiply(new BigDecimal(custom.getCount())).intValue()+"";
+		Price price = customService.getTcPrice(custom.getTc());
+		String body = "菩萨心肠DeSlim益生菌膳食纤维（"+price.getNote()+"）";
+		// 这里用分
+		String order_price =  String.valueOf(new BigDecimal(price.getPrice()).multiply(new BigDecimal(100)).intValue());
 		//String spbill_create_ip = request.getRemoteAddr();
 		String spbill_create_ip = custom.getIp();
 		String notify_url = GlobalConfig.URL + "api/weixin/result";

@@ -1,6 +1,7 @@
 package com.iori.psxc.service;
 
 import com.iori.psxc.Custom;
+import com.iori.psxc.Price;
 import com.iori.psxc.mapper.CustomMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -36,5 +37,10 @@ public class CustomServiceImpl implements ICustomService {
     @Override
     public void updateByTradNo(Custom custom) {
         customMapper.updateByTradNo(custom);
+    }
+
+    @Override
+    public Price getTcPrice(int tc) {
+        return customMapper.getTcPrice(tc);
     }
 }

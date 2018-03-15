@@ -2,11 +2,15 @@ header{
     background-color: #5ab5bb;
     padding: 0 20px 0 20px;
 }
-header nav a,.navbar .navbar-header a {
-    color: #ffffff;
+.navbar-default{
+    background-color: #5ab5bb!important;
+    border-color:#5ab5bb!important;
 }
-.nav .active{
-    background-color: #47a4a9;
+header nav a,.navbar .navbar-header a {
+    color: #ffffff!important;
+}
+.nav .active a{
+    background-color: #47a4a9!important;
 }
 .row{
 	margin:0!important;
@@ -37,12 +41,13 @@ header nav a,.navbar .navbar-header a {
     font-size: 16px;
     letter-spacing: 2px;
 }
-.za-c-pro-item-price{
-    margin-top: 60px;
+.div-tc{
+    margin-top: 20px;
 }
 .za-c-pro-item-price .price-numb {
     font-size: 36px;
     color: #12c287;
+    width: 100px;
 }
 
 .za-c-pro-item-price .price-unit {
@@ -63,6 +68,7 @@ header nav a,.navbar .navbar-header a {
     text-decoration: none;
     background-color: #12c287;
     border-radius: 4px;
+    margin-top: 80px;
 }
 .row-zj-say .pb-50{
     margin-top: 40px;
@@ -145,9 +151,13 @@ p {
 .row-company {
     margin-top: 20px;
 }
-.row-company h2,.row-csr h2,.row-honor h2, .div-video h2, .div-video img{
+.row-company h2,.row-csr h2,.row-honor h2, .div-video h2{
     text-align: center;
     margin: 60px 0px 40px 0px;
+}
+.div-video img{
+    text-align: center;
+    margin: 20px 0px 20px 0px;
 }
 .row-client-say h1{
     text-align: center;
@@ -371,7 +381,7 @@ li, dl, dt, dd {
 }
 .lable-red{color: red}
 
-.div-brand{margin-top: 60px;}
+.div-brand{margin-top: 40px;}
 
 .mask {
     position: absolute; top: 0px; filter: alpha(opacity=60); background-color: #333333;
@@ -389,4 +399,46 @@ li, dl, dt, dd {
 #wxqr{
     margin-top: 20px;
     float: right;
+}
+.navbar-header-right{
+    float: right;
+}
+.navbar-tel{
+    color: #FFFFFF!important;
+}
+.label-tc{
+    position: relative;
+    display: inline-flex;
+    width: 132px;
+    height: 40px;
+    padding: 0px 0px 0px 80px;
+    margin: 0px 5px 0px 0px;
+    border: 1px solid #e6e9eb;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.label-tc span{
+    position: absolute;
+    top:10px;
+}
+.label-tc1 span{
+    left: 40px;
+}
+.label-tc2 span{
+    left: 34px;
+}
+.label-tc3 span{
+    left: 24px;
+}
+.label-tc:hover {
+    border: 1px solid #12c287;
+}
+.div-tc label.active,.modal-tc label.active{
+    border: 1px solid #12c287;
+}
+.col-btn{
+    padding-left: 0px!important;
+}
+.wx_qr label{
+    margin-right: 20px;
 }

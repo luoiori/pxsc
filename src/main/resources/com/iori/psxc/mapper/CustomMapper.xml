@@ -13,6 +13,7 @@
         <result column="city" property="city" />
         <result column="district" property="district" />
         <result column="time" property="time" />
+        <result column="tc" property="tc" />
         <result column="count" property="count" />
         <result column="price" property="price" />
         <result column="totalPrice" property="totalPrice" />
@@ -23,16 +24,18 @@
 
 
     <insert id="insert" keyProperty="id" parameterType="com.iori.psxc.Custom" useGeneratedKeys="true" keyColumn="id">
-        insert into custom (tradno,name,phone,address,remark,province,city,district,time,count,price,totalPrice,ip,paid,paidPrice)
-        values (#{tradno},#{name},#{phone},#{address},#{remark},#{province},#{city},#{district},now(),#{count},#{price},#{totalPrice},#{ip},#{paid},#{paidPrice})
+        insert into custom (tradno,name,phone,address,remark,province,city,district,time,count,tc,price,totalPrice,ip,paid,paidPrice)
+        values (#{tradno},#{name},#{phone},#{address},#{remark},#{province},#{city},#{district},now(),#{count},#{tc},#{price},
+        (select price from price where tc=#{tc})
+        ,#{ip},#{paid},#{paidPrice})
     </insert>
 
     <select id="maxid" resultType="int">
-        select max(id) from custom
+        select IFNULL(max(id),0) from custom
     </select>
 
     <select id="getByTradNo" parameterType="String" resultType="com.iori.psxc.Custom">
-        select id,tradno,name, phone, address, remark, province, city, district, time,count, price, totalPrice, ip, paid,paidPrice
+        select id,tradno,name, phone, address, remark, province, city, district, time,tc,count, price, totalPrice, ip, paid,paidPrice
         from custom
         WHERE tradno=#{value}
     </select>
@@ -40,5 +43,9 @@
     <update id="updateByTradNo" parameterType="com.iori.psxc.Custom">
         update custom set paid = #{paid},paidPrice=#{paidPrice} where tradno=#{tradno}
     </update>
+
+    <select id="getTcPrice" resultType="com.iori.psxc.Price">
+        select tc,price,note from price where tc=#{value}
+    </select>
 
 </mapper>
