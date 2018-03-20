@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>psxc</name>
-	<description>Demo project for Spring Boot</description>
+	<description>pusaxinchang.cn</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
